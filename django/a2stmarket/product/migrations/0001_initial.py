@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255)),
                 ('slug', models.SlugField()),
                 ('description', models.TextField(blank=True, null=True)),
-                ('price', models.DecimalField(decimal_places=2, max_digits=6)),
+                ('price', models.DecimalField(decimal_places=2, max_digits=8)),
                 ('image', models.ImageField(blank=True, null=True, upload_to='uploads/')),
                 ('thumbnail', models.ImageField(blank=True, null=True, upload_to='uploads/')),
                 ('date_added', models.DateTimeField(auto_now_add=True)),
