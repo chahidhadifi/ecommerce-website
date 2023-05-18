@@ -13,6 +13,7 @@
         <button
           class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
           type="button"
+          @click="decrementQuantity(item)"
         >
           <span class="sr-only">Quantity button</span>
           <svg
@@ -35,13 +36,16 @@
             id="third_product"
             class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="1"
+            min="1"
             :value="item.quantity"
             required
+            readonly
           />
         </div>
         <button
           class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
           type="button"
+          @click="incrementQuantity(item)"
         >
           <span class="sr-only">Quantity button</span>
           <svg
@@ -64,11 +68,13 @@
       DH {{ getItemTotal(item).toFixed(2) }}
     </td>
     <td class="px-6 py-4">
-      <a
-        href="#"
-        class="font-medium text-red-600 dark:text-red-500 hover:underline"
-        >Remove</a
+      <button
+        type="button"
+        @click="removeFromCart(item)"
+        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
       >
+        Remove
+      </button>
     </td>
   </tr>
 </template>
@@ -88,28 +94,28 @@ export default {
     getItemTotal(item) {
       return item.quantity * item.product.price;
     },
-    // decrementQuantity(item) {
-    //   item.quantity -= 1;
+    decrementQuantity(item) {
+      item.quantity -= 1;
 
-    //   if (item.quantity === 0) {
-    //     this.$emit("removeFromCart", item);
-    //   }
+      if (item.quantity === 0) {
+        this.$emit("removeFromCart", item);
+      }
 
-    //   this.updateCart();
-    // },
-    // incrementQuantity(item) {
-    //   item.quantity += 1;
+      this.updateCart();
+    },
+    incrementQuantity(item) {
+      item.quantity += 1;
 
-    //   this.updateCart();
-    // },
-    // updateCart() {
-    //   localStorage.setItem("cart", JSON.stringify(this.$store.state.cart));
-    // },
-    // removeFromCart(item) {
-    //   this.$emit("removeFromCart", item);
+      this.updateCart();
+    },
+    updateCart() {
+      localStorage.setItem("cart", JSON.stringify(this.$store.state.cart));
+    },
+    removeFromCart(item) {
+      this.$emit("removeFromCart", item);
 
-    //   this.updateCart();
-    // },
+      this.updateCart();
+    },
   },
 };
 </script>
