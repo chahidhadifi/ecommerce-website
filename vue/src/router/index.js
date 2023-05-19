@@ -6,6 +6,7 @@ import Category from "../views/Category.vue";
 import Search from "../views/Search.vue";
 import Cart from "../views/Cart.vue";
 import SignUp from "../views/SignUp.vue";
+import LogIn from "../views/LogIn.vue";
 
 const routes = [
   {
@@ -44,8 +45,13 @@ const routes = [
   },
   {
     path: "/sign-up",
-    name: "signup",
+    name: "sign-up",
     component: SignUp,
+  },
+  {
+    path: "/log-in",
+    name: "log-in",
+    component: LogIn,
   },
 ];
 
