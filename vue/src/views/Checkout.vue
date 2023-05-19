@@ -1,0 +1,456 @@
+<!-- background: bg-gray-50 -->
+<!-- font: text-gray-600 -->
+<template>
+  <div class="min-w-screen min-h-screen bg-white py-5">
+    <div class="px-5">
+      <div class="mb-2">
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-600">Checkout</h1>
+      </div>
+    </div>
+    <div
+      class="w-full bg-white border-t border-b border-gray-200 px-5 py-10 text-gray-800"
+    >
+      <div class="w-full">
+        <div class="-mx-3 md:flex items-start">
+          <div class="px-3 md:w-7/12 lg:pr-10">
+            <div
+              class="w-full mx-auto text-gray-800 font-light mb-6 border-b border-gray-200 pb-6"
+            >
+              <table
+                class="w-full text-sm text-left text-gray-600 dark:text-gray-600"
+              >
+                <thead
+                  class="text-xs text-gray-700 uppercase bg-gray-50 light:bg-gray-700 light:text-gray-600"
+                >
+                  <tr>
+                    <th scope="col" class="px-6 py-3">
+                      <span class="sr-only">Image</span>
+                    </th>
+                    <th scope="col" class="px-6 py-3">Product</th>
+                    <th scope="col" class="px-6 py-3">Qty</th>
+                    <th scope="col" class="px-6 py-3">Price</th>
+                    <th scope="col" class="px-6 py-3">Total</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-600 text-bold">
+                  <tr v-for="item in cart.items" v-bind:key="item.product.id">
+                    <td class="w-32 p-4">
+                      <img :src="item.product.get_thumbnail" alt="thumbnail" />
+                    </td>
+                    <td
+                      class="px-6 py-4 font-semibold text-gray-900 light:text-dark"
+                    >
+                      {{ item.product.name }}
+                    </td>
+                    <td
+                      class="px-6 py-4 font-semibold text-gray-900 light:text-dark"
+                    >
+                      {{ item.product.price }}
+                    </td>
+                    <td
+                      class="px-6 py-4 font-semibold text-gray-900 light:text-dark"
+                    >
+                      {{ item.quantity }}
+                    </td>
+                    <td
+                      class="px-6 py-4 font-semibold text-gray-900 light:text-dark"
+                    >
+                      {{ getItemTotal(item).toFixed(2) }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="mb-6 pb-6 border-b border-gray-200 md:border-none text-gray-800 text-xl"
+            >
+              <div class="w-full flex items-center">
+                <div class="flex-grow">
+                  <span class="text-gray-600">Total</span>
+                </div>
+                <div class="pl-3">
+                  <span class="font-semibold px-1">{{ cartTotalPrice }}</span>
+                  <span class="font-semibold text-gray-400 text-sm">DH</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-3 md:w-5/12">
+            <div
+              class="w-full mx-auto rounded-lg bg-white border border-gray-200 text-gray-800 font-light mb-6"
+            >
+              <div class="w-full p-3 border-b border-gray-200">
+                <div
+                  class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 light:bg-gray-800 light:text-red-400"
+                  role="alert"
+                  v-if="errors.length"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="flex-shrink-0 inline w-5 h-5 mr-3"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  <span class="sr-only">Info</span>
+                  <div v-for="error in errors" v-bind:key="error">
+                    <span class="font-medium">Danger alert!</span> {{ error }}
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-3">
+                    <label class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                      >First name</label
+                    >
+                    <div>
+                      <input
+                        class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                        v-model="first_name"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                      >Last name</label
+                    >
+                    <div>
+                      <input
+                        class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                        v-model="last_name"
+                        type="text"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label
+                        class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                        >Email</label
+                      >
+                      <div>
+                        <input
+                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                          v-model="email"
+                          type="email"
+                        />
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label
+                        class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                        >Phone</label
+                      >
+                      <div>
+                        <input
+                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                          v-model="phone"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label
+                        class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                        >Address</label
+                      >
+                      <div>
+                        <input
+                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                          v-model="address"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label
+                        class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                        >Zip code</label
+                      >
+                      <div>
+                        <input
+                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                          v-model="zipcode"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label
+                        class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                        >Place</label
+                      >
+                      <div>
+                        <input
+                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                          v-model="place"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div v-if="cartTotalLength">
+              <button
+                class="block w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-2 font-semibold"
+                @click="submitForm"
+              >
+                <i class="mdi mdi-lock-outline mr-1"></i> PAY NOW
+              </button>
+            </div>
+            <div v-else>
+              <div
+                class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 light:bg-gray-800 light:text-red-400"
+                role="alert"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="flex-shrink-0 inline w-5 h-5 mr-3"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="sr-only">Info</span>
+                <div>No items in your cart</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  name: "Checkout",
+  data() {
+    return {
+      cart: {
+        items: [],
+      },
+      stripe: {},
+      card: {},
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone: "",
+      address: "",
+      zipcode: "",
+      place: "",
+      errors: [],
+    };
+  },
+  mounted() {
+    document.title = "Checkout";
+
+    this.cart = this.$store.state.cart;
+
+    if (this.cartTotalLength > 0) {
+      //   this.stripe = Stripe(
+      //     "pk_test_51H1HiuKBJV2qfWbD2gQe6aqanfw6Eyul5PO2KeOuSRlUMuaV4TxEtaQyzr9DbLITSZweL7XjK3p74swcGYrE2qEX00Hz7GmhMI"
+      //   );
+      //   const elements = this.stripe.elements();
+      //   this.card = elements.create("card", { hidePostalCode: true });
+      //   this.card.mount("#card-element");
+    }
+  },
+  methods: {
+    getItemTotal(item) {
+      return item.quantity * item.product.price;
+    },
+    submitForm() {
+      this.errors = [];
+
+      if (this.first_name === "") {
+        this.errors.push("The first name field is missing!");
+      }
+
+      if (this.last_name === "") {
+        this.errors.push("The last name field is missing!");
+      }
+
+      if (this.email === "") {
+        this.errors.push("The email field is missing!");
+      }
+
+      if (this.phone === "") {
+        this.errors.push("The phone field is missing!");
+      }
+
+      if (this.address === "") {
+        this.errors.push("The address field is missing!");
+      }
+
+      if (this.zipcode === "") {
+        this.errors.push("The zip code field is missing!");
+      }
+
+      if (this.place === "") {
+        this.errors.push("The place field is missing!");
+      }
+
+      if (!this.errors.length) {
+        // this.stripe.createToken(this.card).then((result) => {
+        //   if (result.error) {
+        //     this.$store.commit("setIsLoading", false);
+        //     this.errors.push(
+        //       "Something went wrong with Stripe. Please try again"
+        //     );
+        //     console.log(result.error.message);
+        //   } else {
+        //     this.stripeTokenHandler(result.token);
+        //   }
+        // });
+      }
+    },
+    // async stripeTokenHandler(token) {
+    //   const items = [];
+
+    //   for (let i = 0; i < this.cart.items.length; i++) {
+    //     const item = this.cart.items[i];
+    //     const obj = {
+    //       product: item.product.id,
+    //       quantity: item.quantity,
+    //       price: item.product.price * item.quantity,
+    //     };
+
+    //     items.push(obj);
+    //   }
+
+    //   const data = {
+    //     first_name: this.first_name,
+    //     last_name: this.last_name,
+    //     email: this.email,
+    //     address: this.address,
+    //     zipcode: this.zipcode,
+    //     place: this.place,
+    //     phone: this.phone,
+    //     items: items,
+    //     stripe_token: token.id,
+    //   };
+
+    //   await axios
+    //     .post("/api/v1/checkout/", data)
+    //     .then((response) => {
+    //       this.$store.commit("clearCart");
+    //       this.$router.push("/cart/success");
+    //     })
+    //     .catch((error) => {
+    //       this.errors.push("Something went wrong. Please try again");
+
+    //       console.log(error);
+    //     });
+
+    //   this.$store.commit("setIsLoading", false);
+    // },
+  },
+  computed: {
+    cartTotalPrice() {
+      return this.cart.items.reduce((acc, curVal) => {
+        return (acc += curVal.product.price * curVal.quantity);
+      }, 0);
+    },
+    cartTotalLength() {
+      return this.cart.items.reduce((acc, curVal) => {
+        return (acc += curVal.quantity);
+      }, 0);
+    },
+  },
+};
+</script>
+
+<style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css");
+
+.form-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  display: inline-block;
+  vertical-align: middle;
+  background-origin: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  flex-shrink: 0;
+  border-radius: 100%;
+  border-width: 2px;
+}
+
+.form-radio:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+  border-color: transparent;
+  background-color: currentColor;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media not print {
+  .form-radio::-ms-check {
+    border-width: 1px;
+    color: transparent;
+    background: inherit;
+    border-color: inherit;
+    border-radius: inherit;
+  }
+}
+
+.form-radio:focus {
+  outline: none;
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a0aec0'%3e%3cpath d='M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z'/%3e%3c/svg%3e");
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  background-repeat: no-repeat;
+  padding-top: 0.5rem;
+  padding-right: 2.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+}
+
+.form-select::-ms-expand {
+  color: #a0aec0;
+  border: none;
+}
+
+@media not print {
+  .form-select::-ms-expand {
+    display: none;
+  }
+}
+
+@media print and (-ms-high-contrast: active),
+  print and (-ms-high-contrast: none) {
+  .form-select {
+    padding-right: 0.75rem;
+  }
+}
+</style>
