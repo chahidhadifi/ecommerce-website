@@ -11,6 +11,7 @@ import SignUp from "../views/SignUp.vue";
 import LogIn from "../views/LogIn.vue";
 import Account from "../views/Account.vue";
 import Checkout from "../views/Checkout.vue";
+import Success from "../views/Success.vue";
 
 const routes = [
   {
@@ -48,6 +49,22 @@ const routes = [
     component: Cart,
   },
   {
+    path: "/cart/checkout",
+    name: "checkout",
+    component: Checkout,
+    meta: {
+      requireLogin: true,
+    },
+  },
+  {
+    path: "/cart/success",
+    name: "success",
+    component: Success,
+    // meta: {
+    //   requireLogin: true,
+    // },
+  },
+  {
     path: "/sign-up",
     name: "sign-up",
     component: SignUp,
@@ -61,14 +78,6 @@ const routes = [
     path: "/account",
     name: "account",
     component: Account,
-    meta: {
-      requireLogin: true,
-    },
-  },
-  {
-    path: "/cart/checkout",
-    name: "checkout",
-    component: Checkout,
     meta: {
       requireLogin: true,
     },
