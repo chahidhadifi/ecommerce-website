@@ -196,6 +196,7 @@
                 </div>
               </div>
             </div>
+            <div id="card-element" class="mb-5"></div>
             <div v-if="cartTotalLength">
               <button
                 class="block w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-2 font-semibold"
@@ -261,12 +262,13 @@ export default {
     this.cart = this.$store.state.cart;
 
     if (this.cartTotalLength > 0) {
-      //   this.stripe = Stripe(
-      //     "pk_test_51H1HiuKBJV2qfWbD2gQe6aqanfw6Eyul5PO2KeOuSRlUMuaV4TxEtaQyzr9DbLITSZweL7XjK3p74swcGYrE2qEX00Hz7GmhMI"
-      //   );
-      //   const elements = this.stripe.elements();
-      //   this.card = elements.create("card", { hidePostalCode: true });
-      //   this.card.mount("#card-element");
+      this.stripe = Stripe(
+        "pk_test_51N9oiTBiU0dysdfIgjNZFlvXzGylZ7fNrTBPuKSKZPIKaF1yvwf2khjrrm3YLS3zIqAYnLybA9CU6xFbDf71QL0G00JZOPTR2P"
+      );
+      const elements = this.stripe.elements();
+      this.card = elements.create("card", { hidePostalCode: true });
+
+      this.card.mount("#card-element");
     }
   },
   methods: {
@@ -305,59 +307,55 @@ export default {
       }
 
       if (!this.errors.length) {
-        // this.stripe.createToken(this.card).then((result) => {
-        //   if (result.error) {
-        //     this.$store.commit("setIsLoading", false);
-        //     this.errors.push(
-        //       "Something went wrong with Stripe. Please try again"
-        //     );
-        //     console.log(result.error.message);
-        //   } else {
-        //     this.stripeTokenHandler(result.token);
-        //   }
-        // });
+        this.stripe.createToken(this.card).then((result) => {
+          if (result.error) {
+            this.errors.push(
+              "Something went wrong with Stripe. Please try again"
+            );
+            console.log(result.error.message);
+          } else {
+            this.stripeTokenHandler(result.token);
+          }
+        });
       }
     },
-    // async stripeTokenHandler(token) {
-    //   const items = [];
+    async stripeTokenHandler(token) {
+      const items = [];
 
-    //   for (let i = 0; i < this.cart.items.length; i++) {
-    //     const item = this.cart.items[i];
-    //     const obj = {
-    //       product: item.product.id,
-    //       quantity: item.quantity,
-    //       price: item.product.price * item.quantity,
-    //     };
+      for (let i = 0; i < this.cart.items.length; i++) {
+        const item = this.cart.items[i];
+        const obj = {
+          product: item.product.id,
+          quantity: item.quantity,
+          price: item.product.price * item.quantity,
+        };
 
-    //     items.push(obj);
-    //   }
+        items.push(obj);
+      }
 
-    //   const data = {
-    //     first_name: this.first_name,
-    //     last_name: this.last_name,
-    //     email: this.email,
-    //     address: this.address,
-    //     zipcode: this.zipcode,
-    //     place: this.place,
-    //     phone: this.phone,
-    //     items: items,
-    //     stripe_token: token.id,
-    //   };
+      const data = {
+        first_name: this.first_name,
+        last_name: this.last_name,
+        email: this.email,
+        address: this.address,
+        zipcode: this.zipcode,
+        place: this.place,
+        phone: this.phone,
+        items: items,
+        stripe_token: token.id,
+      };
 
-    //   await axios
-    //     .post("/api/v1/checkout/", data)
-    //     .then((response) => {
-    //       this.$store.commit("clearCart");
-    //       this.$router.push("/cart/success");
-    //     })
-    //     .catch((error) => {
-    //       this.errors.push("Something went wrong. Please try again");
-
-    //       console.log(error);
-    //     });
-
-    //   this.$store.commit("setIsLoading", false);
-    // },
+      await axios
+        .post("/api/v1/checkout/", data)
+        .then((response) => {
+          this.$store.commit("clearCart");
+          this.$router.push("/cart/success");
+        })
+        .catch((error) => {
+          this.errors.push("Something went wrong. Please try again");
+          console.log(error);
+        });
+    },
   },
   computed: {
     cartTotalPrice() {

@@ -60,9 +60,9 @@ const routes = [
     path: "/cart/success",
     name: "success",
     component: Success,
-    // meta: {
-    //   requireLogin: true,
-    // },
+    meta: {
+      requireLogin: true,
+    },
   },
   {
     path: "/sign-up",
