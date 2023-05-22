@@ -1,5 +1,6 @@
 <template>
-  <section class="bg-white light:bg-gray-900">
+  <!-- old section -->
+  <!-- <section class="bg-white light:bg-gray-900">
     <div
       class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
     >
@@ -18,12 +19,12 @@
         Log out
       </button>
     </div>
-  </section>
+  </section> -->
   <section class="overflow-y-hidden light:bg-gray-900">
     <div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
       <div class="flex justify-start item-start space-y-2 flex-col">
         <h1
-          class="text-3xl light:text-white lg:text-4xl font-extrabold leading-7 lg:leading-9 text-gray-600"
+          class="text-3xl light:text-white lg:text-4xl font-bold leading-7 lg:leading-9 text-gray-900"
         >
           Account
         </h1>
@@ -38,9 +39,9 @@
             class="flex flex-col justify-start items-start light:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full"
           >
             <p
-              class="text-lg md:text-xl light:text-white font-extrabold leading-6 xl:leading-5 text-gray-600 mb-4"
+              class="text-lg md:text-xl light:text-white font-semibold leading-6 xl:leading-5 text-gray-900 mb-4"
             >
-              Customer Cart
+              Customer orders
             </p>
             <!-- orders list -->
             <Order
@@ -51,7 +52,7 @@
             <!-- end orders list -->
           </div>
         </div>
-        <div
+        <!-- <div
           class="bg-gray-50 light:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col"
         >
           <h3
@@ -66,10 +67,7 @@
               <div
                 class="flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-b border-gray-200"
               >
-                <img
-                  src="https://i.ibb.co/5TSg7f6/Rectangle-18.png"
-                  alt="avatar"
-                />
+                <i class="bx bx-user-circle bx-lg"></i>
                 <div class="flex justify-start items-start flex-col space-y-2">
                   <p
                     class="text-base light:text-white font-semibold leading-4 text-left text-gray-800"
@@ -79,7 +77,7 @@
                   <p
                     class="text-sm light:text-gray-300 leading-5 text-gray-600"
                   >
-                    10 Previous Orders
+                    {{ this.orders.length }} Previous Order(s)
                   </p>
                 </div>
               </div>
@@ -148,7 +146,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -166,6 +164,7 @@ export default {
   data() {
     return {
       orders: [],
+      user: {},
     };
   },
   mounted() {
@@ -174,17 +173,17 @@ export default {
     this.getMyOrders();
   },
   methods: {
-    logout() {
-      axios.defaults.headers.common["Authorization"] = "";
+    // logout() {
+    //   axios.defaults.headers.common["Authorization"] = "";
 
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-      localStorage.removeItem("userid");
+    //   localStorage.removeItem("token");
+    //   localStorage.removeItem("username");
+    //   localStorage.removeItem("userid");
 
-      this.$store.commit("removeToken");
+    //   this.$store.commit("removeToken");
 
-      this.$router.push("/");
-    },
+    //   this.$router.push("/");
+    // },
     async getMyOrders() {
       await axios
         .get("/api/v1/orders/")

@@ -1,5 +1,5 @@
 <template>
-  <p class="text-lg md:text-xl light:text-white font-bold text-gray-600">
+  <p class="text-lg md:text-base light:text-white font-semibold text-gray-900">
     Order #{{ order.id }}
   </p>
   <div
@@ -8,7 +8,7 @@
     v-bind:key="item.product.id"
   >
     <div class="pb-4 md:pb-8 w-full md:w-40">
-      <img class="w-full hidden md:block" :src="item.product.get_thumbnail" />
+      <img class="w-full sm:block" :src="item.product.get_thumbnail" />
     </div>
     <div
       class="border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0"

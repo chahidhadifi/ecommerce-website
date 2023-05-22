@@ -86,8 +86,6 @@ export default {
   },
   methods: {
     async getProduct() {
-      this.$store.commit("setIsLoading", true);
-
       const category_slug = this.$route.params.category_slug;
       const product_slug = this.$route.params.product_slug;
 
@@ -101,8 +99,6 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-
-      this.$store.commit("setIsLoading", false);
     },
     displayMessage() {
       this.showMessage = true;
