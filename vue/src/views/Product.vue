@@ -8,7 +8,7 @@
   >
     <div class="flex items-center space-x-2">
       <span class="text-3xl"><i class="bx bx-check"></i></span>
-      <p class="font-bold">Item Created Successfully!</p>
+      <p class="font-bold">Item created successfully!</p>
     </div>
   </button>
   <div

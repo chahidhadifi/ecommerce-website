@@ -89,7 +89,7 @@
                 your weekly benefits:
               </p> -->
               <a
-                href="/telephone"
+                href="/phone"
                 class="inline-flex items-center text-gray-900 hover:underline"
                 target="_blank"
               >
