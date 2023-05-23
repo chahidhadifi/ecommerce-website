@@ -4,7 +4,7 @@
     v-if="showMessage"
     x-show="open"
     x-transition.duration.300ms
-    class="fixed top-4 right-4 mt-12 mr-12 z-50 rounded-md bg-green-500 px-4 py-2 text-white transition hover:bg-green-600"
+    class="cursor-default fixed top-4 right-4 mt-12 mr-12 z-50 rounded-md bg-gray-900 px-4 py-2 text-white transition"
   >
     <div class="flex items-center space-x-2">
       <span class="text-3xl"><i class="bx bx-check"></i></span>
@@ -12,7 +12,7 @@
     </div>
   </button>
   <div
-    class="min-w-screen min-h-screen bg-gray-900 flex items-center p-5 lg:p-10 overflow-hidden relative"
+    class="min-w-screen min-h-screen bg-white flex items-center p-5 lg:p-10 overflow-hidden relative"
   >
     <div
       class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left"
@@ -29,14 +29,14 @@
         </div>
         <div class="w-full md:w-1/2 px-10">
           <div class="mb-3">
-            <h1 class="font-bold uppercase text-2xl mb-5">
+            <h1 class="font-bold uppercase text-3xl mb-5">
               {{ product.name }}
             </h1>
-            <p class="text-sm">
+            <p class="text-sm text-gray-500">
               {{ product.description }}
             </p>
           </div>
-          <div>
+          <!-- <div>
             <div class="flex items-center gap-1">
               <input
                 type="number"
@@ -45,18 +45,76 @@
                 class="h-10 w-24 rounded border-gray-200 sm:text-sm"
               />
             </div>
+          </div> -->
+          <div class="flex flex-row my-5">
+            <button
+              class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+              type="button"
+              @click="
+                if (quantity > 1) {
+                  --quantity;
+                }
+              "
+            >
+              <span class="sr-only">Quantity button</span>
+              <svg
+                class="w-4 h-4"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+            <div>
+              <input
+                type="number"
+                id="third_product"
+                class="bg-gray-50 mx-2 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="1"
+                min="1"
+                v-model="quantity"
+                required
+                readonly
+              />
+            </div>
+            <button
+              class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+              type="button"
+              @click="++quantity"
+            >
+              <span class="sr-only">Quantity button</span>
+              <svg
+                class="w-4 h-4"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
           </div>
-          <div>
-            <div class="inline-block align-bottom">
-              <span class="text-2xl leading-none align-baseline">MAD </span>
+          <!-- sdf -->
+          <div class="flex flex-col">
+            <div class="inline-block align-bottom mb-2">
               <span class="font-bold text-5xl leading-none align-baseline">{{
                 product.price
               }}</span>
+              <span class="text-2xl leading-none align-baseline"> DH</span>
             </div>
-            <br />
             <div class="inline-block align-bottom mt-3">
               <button
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                class="cursor-pointer rounded bg-gray-900 hover:bg-gray-700 py-2 px-8 text-center text-lg font-bold text-white"
                 @click="addToCart"
               >
                 <i class="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW

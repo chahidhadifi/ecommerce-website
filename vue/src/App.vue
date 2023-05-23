@@ -221,7 +221,7 @@
               >Cart
               <div
                 v-if="cartTotalLength != 0"
-                class="relative inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-blue-500 border-2 border-white rounded-full -top-2 dark:border-gray-900"
+                class="relative inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-gray-900 border-2 border-white rounded-full -top-2 dark:border-gray-900"
               >
                 {{ cartTotalLength }}
               </div></a
