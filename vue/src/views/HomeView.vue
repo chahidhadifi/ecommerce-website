@@ -50,133 +50,240 @@
         </div>
       </div>
     </section>
-    <!-- products -->
-    <!-- bg-white light:bg-gray-900 -->
-    <section>
-      <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-8 lg:px-6">
-        <div
-          class="max-w-screen-lg text-gray-500 sm:text-lg dark:text-gray-400"
-        >
-          <!-- title -->
-          <h2
-            class="mb-2 text-4xl tracking-tight font-bold text-gray-900 light:text-dark"
-          >
-            Powering innovation at
-            <span class="font-extrabold">200,000+</span> companies worldwide
-          </h2>
-          <!-- search -->
-          <div>
-            <div class="mx-auto mt-1 w-screen max-w-screen-md py-2 leading-6">
-              <form
-                class="relative mx-auto flex w-full max-w-2xl items-center justify-between rounded-md border shadow-lg"
-                method="get"
-                action="/search"
-              >
-                <svg
-                  class="absolute left-2 block h-5 w-5 text-gray-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="11" cy="11" r="8" class=""></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" class=""></line>
-                </svg>
-                <input
-                  type="name"
-                  name="query"
-                  class="h-14 w-full rounded-md py-4 pr-40 pl-12 outline-none focus:ring-2"
-                />
-                <button
-                  type="submit"
-                  class="absolute right-0 mr-1 inline-flex h-12 items-center justify-center rounded-lg bg-gray-900 px-10 font-medium text-white focus:ring-4 hover:bg-gray-700"
-                >
-                  Search
-                </button>
-              </form>
-            </div>
-          </div>
-          <!-- categories -->
-          <div class="mb-5">
-            <span
-              class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded light:bg-blue-900 light:text-blue-300"
-              >All</span
-            >
-            <router-link to="/tv">
-              <span
-                class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded light:bg-blue-900 light:text-blue-300"
-                >Tv</span
-              >
-            </router-link>
 
-            <span
-              class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded light:bg-blue-900 light:text-blue-300"
-              >Téléphone</span
+    <!-- categories -->
+    <section>
+      <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
+        <header class="text-center">
+          <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
+            Shop by category
+          </h2>
+
+          <p class="max-w-md mx-auto mt-4 text-gray-500">
+            We offer a wide range of categories, to ensure a great experience on
+            our website.
+          </p>
+        </header>
+
+        <ul class="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4">
+          <li>
+            <div
+              class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
             >
-          </div>
-          <!-- cards -->
-          <section class="text-gray-600 body-font">
-            <div class="container mx-auto">
-              <div
-                class="grid md:grid-cols-2 lg:grid-cols-3 justify-items-between mt-8 gap-y-8 lg:gap-y-0 gap-x-8"
-              >
-                <!-- oneCard -->
-                <div
-                  class="group my-10 flex w-full max-w-xs flex-col overflow-hidden border border-gray-100 bg-white shadow-md"
-                  v-for="product in latestProducts"
-                  v-bind:key="product.id"
+              <div class="my-3">
+                <i class="bx bx-mobile-alt bx-lg"></i>
+              </div>
+              <div class="cursor-default">
+                <h5
+                  class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"
                 >
-                  <a class="relative flex h-60 overflow-hidden" href="#">
-                    <img
-                      class="absolute top-8 left-9"
-                      :src="product.get_thumbnail"
-                      alt="product image"
-                    />
-                  </a>
-                  <div class="mt-4 px-5 pb-5">
-                    <a href="#">
-                      <h5 class="text-xl tracking-tight text-slate-900">
-                        {{ product.name }}
-                      </h5>
-                    </a>
-                    <div class="mt-2 mb-5 flex items-center justify-between">
-                      <p>
-                        <span class="text-xl font-bold text-slate-900"
-                          >DH {{ product.price }}</span
-                        >
-                      </p>
-                    </div>
-                    <router-link
-                      class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-                      v-bind:to="product.get_absolute_url"
+                  Phone
+                </h5>
+              </div>
+              <!-- <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">
+                Go to this step by step guideline process on how to certify for
+                your weekly benefits:
+              </p> -->
+              <a
+                href="/telephone"
+                class="inline-flex items-center text-gray-900 hover:underline"
+                target="_blank"
+              >
+                Explore the category
+                <svg
+                  class="w-5 h-5 ml-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                  ></path>
+                  <path
+                    d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </li>
+
+          <li>
+            <div
+              class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            >
+              <div class="my-3">
+                <i class="bx bx-tv bx-lg"></i>
+              </div>
+              <div class="cursor-default">
+                <h5
+                  class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"
+                >
+                  TV
+                </h5>
+              </div>
+              <a
+                href="/tv"
+                class="inline-flex items-center text-gray-900 hover:underline"
+                target="_blank"
+              >
+                Explore the category
+                <svg
+                  class="w-5 h-5 ml-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                  ></path>
+                  <path
+                    d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </li>
+
+          <li>
+            <div
+              class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            >
+              <div class="my-3">
+                <i class="bx bx-laptop bx-lg"></i>
+              </div>
+              <div class="cursor-default">
+                <h5
+                  class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"
+                >
+                  Computer
+                </h5>
+              </div>
+              <a
+                href="/ordinateur"
+                class="inline-flex items-center text-gray-900 hover:underline"
+                target="_blank"
+              >
+                Explore the category
+                <svg
+                  class="w-5 h-5 ml-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                  ></path>
+                  <path
+                    d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </li>
+
+          <li>
+            <div
+              class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            >
+              <div class="my-3">
+                <i class="bx bx-mouse-alt bx-lg"></i>
+              </div>
+              <div class="cursor-default">
+                <h5
+                  class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"
+                >
+                  Technology equipment
+                </h5>
+              </div>
+              <a
+                href="/materiel-informatique"
+                class="inline-flex items-center text-gray-900 hover:underline"
+                target="_blank"
+              >
+                Explore the category
+                <svg
+                  class="w-5 h-5 ml-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                  ></path>
+                  <path
+                    d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- products -->
+    <section>
+      <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
+        <header class="text-center">
+          <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
+            Product collection
+          </h2>
+
+          <p class="max-w-md mx-auto mt-4 text-gray-500">
+            We offer a wide range of electronic products, such as smartphones,
+            tablets, laptops, televisions, and more to suit your needs.
+          </p>
+        </header>
+
+        <ul class="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4">
+          <li v-for="product in latestProducts" v-bind:key="product.id">
+            <div
+              class="group my-10 flex w-full max-w-xs flex-col overflow-hidden border border-gray-100 bg-white shadow-md"
+            >
+              <a class="relative flex h-60 overflow-hidden" href="#">
+                <img
+                  class="absolute top-8 left-9"
+                  :src="product.get_thumbnail"
+                  alt="product image"
+                />
+              </a>
+              <div class="mt-4 px-5 pb-5">
+                <a href="#">
+                  <h5 class="text-xl tracking-tight text-slate-900">
+                    {{ product.name }}
+                  </h5>
+                </a>
+                <div class="mt-2 mb-5 flex items-center justify-between">
+                  <p>
+                    <span class="text-xl font-bold text-slate-900"
+                      >DH {{ product.price }}</span
                     >
-                      <button
-                        class="flex items-center justify-center bg-gray-900 px-2 py-1 text-sm text-white transition hover:bg-gray-700"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="mr-2 h-5 w-5"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
-                          />
-                        </svg>
-                        View details
-                      </button>
-                    </router-link>
-                  </div>
+                  </p>
                 </div>
+                <router-link
+                  class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+                  v-bind:to="product.get_absolute_url"
+                >
+                  <button
+                    class="flex items-center justify-center bg-gray-900 px-2 py-1 text-sm text-white transition hover:bg-gray-700"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mr-2 h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                      />
+                    </svg>
+                    View details
+                  </button>
+                </router-link>
               </div>
             </div>
-          </section>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
   </div>

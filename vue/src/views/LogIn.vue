@@ -51,7 +51,6 @@
             class="shadow-sm w-full cursor-text appearance-none rounded border border-gray-300 py-2 px-3 leading-tight outline-none ring-blue-500 focus:ring"
             id="username"
             type="text"
-            placeholder="username"
             v-model="username"
             required=""
           /><span class="my-2 block"></span>
@@ -64,14 +63,13 @@
             id="password"
             type="password"
             v-model="password"
-            placeholder="******************"
             required=""
           />
         </div>
         <div class="flex items-center">
           <div class="flex-1"></div>
           <button
-            class="cursor-pointer rounded bg-blue-600 py-2 px-8 text-center text-lg font-bold text-white"
+            class="cursor-pointer rounded bg-gray-900 hover:bg-gray-700 py-2 px-8 text-center text-lg font-bold text-white"
             type="submit"
           >
             Log in
@@ -80,7 +78,7 @@
         <div class="text-sm pt-5 font-medium text-gray-900 light:text-white">
           Don't have an account?
           <router-link
-            class="text-blue-600 hover:underline light:text-blue-500"
+            class="bg-white font-bold hover:underline text-gray-800"
             to="/sign-up"
           >
             Sign up
