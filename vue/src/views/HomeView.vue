@@ -1,55 +1,59 @@
 <template>
   <div class="home">
     <!-- hero -->
-    <section class="bg-white dark:bg-gray-900">
+    <div class="relative bg-gray-900">
+      <div class="absolute inset-x-0 bottom-0">
+        <svg
+          viewBox="0 0 224 12"
+          fill="currentColor"
+          class="w-full -mb-1 text-white"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,0 C48.8902582,6.27314026 86.2235915,9.40971039 112,9.40971039 C137.776408,9.40971039 175.109742,6.27314026 224,0 L224,12.0441132 L0,12.0441132 L0,0 Z"
+          ></path>
+        </svg>
+      </div>
       <div
-        class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
+        class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
       >
-        <div class="mr-auto place-self-center lg:col-span-7">
+        <div
+          class="relative max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl sm:text-center"
+        >
           <h1
-            class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
+            class="mb-10 font-sans text-4xl font-extrabold tracking-tight text-white sm:text-6xl sm:leading-none"
           >
-            Payments tool for software companies
+            We offer the convenience of online shopping.
           </h1>
-          <p
-            class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
-          >
-            From checkout to global sales tax compliance, companies around the
-            world use Flowbite to simplify their payment stack.
+          <p class="mb-6 text-base text-indigo-100 md:text-lg">
+            Welcome to our online marketplace, where shopping becomes an
+            effortless and enjoyable experience. Our website brings together a
+            vast selection of products from various categories, all in one
+            convenient place. From electronics and fashion to home essentials
+            and beyond, we have curated a diverse range of high-quality items to
+            cater to your needs and preferences.
           </p>
           <a
-            href="#"
-            class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+            href="#start-shoping"
+            aria-label="Scroll down"
+            class="flex items-center justify-center w-10 h-10 mx-auto text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110"
           >
-            Get started
             <svg
-              class="w-5 h-5 ml-2 -mr-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="currentColor"
             >
               <path
-                fill-rule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"
+                d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z"
               ></path>
             </svg>
           </a>
-          <a
-            href="#"
-            class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-          >
-            Speak to Sales
-          </a>
         </div>
-        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-          <img
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
-            alt="mockup"
-          />
-        </div>
+        <div id="start-shoping"></div>
       </div>
-    </section>
+    </div>
 
     <!-- categories -->
     <section>
