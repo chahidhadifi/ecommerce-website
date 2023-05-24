@@ -5,11 +5,11 @@
     <td class="w-32 p-4">
       <img :src="item.product.get_thumbnail" alt="thumbnail" />
     </td>
-    <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+    <td class="px-6 py-4 font-bold text-gray-900 dark:text-white">
       {{ item.product.name }}
     </td>
     <td class="px-6 py-4">
-      <div class="flex items-center space-x-3">
+      <div class="flex items-center space-x-3 font-bold">
         <button
           class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
           type="button"
@@ -64,14 +64,14 @@
         </button>
       </div>
     </td>
-    <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-      DH {{ getItemTotal(item).toFixed(2) }}
+    <td class="px-6 py-4 font-bold text-gray-900 dark:text-white">
+      {{ getItemTotal(item).toFixed(2) }} DH
     </td>
     <td class="px-6 py-4">
       <button
         type="button"
         @click="removeFromCart(item)"
-        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+        class="focus:outline-none text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
       >
         Remove
       </button>
@@ -95,11 +95,13 @@ export default {
       return item.quantity * item.product.price;
     },
     decrementQuantity(item) {
-      item.quantity -= 1;
-
-      if (item.quantity === 0) {
-        this.$emit("removeFromCart", item);
+      if (item.quantity > 1) {
+        item.quantity -= 1;
       }
+
+      // if (item.quantity === 0) {
+      //   this.$emit("removeFromCart", item);
+      // }
 
       this.updateCart();
     },

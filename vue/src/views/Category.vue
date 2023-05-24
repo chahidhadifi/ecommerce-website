@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="mt-7">
     <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
       <header class="text-center">
-        <h2 class="text-xl font-bold text-gray-900 sm:text-4xl">
+        <h2 class="text-4xl font-bold text-gray-900 sm:text-4xl">
           {{ category.name }}
         </h2>
       </header>

@@ -107,9 +107,10 @@
           <!-- sdf -->
           <div class="flex flex-col">
             <div class="inline-block align-bottom mb-2">
-              <span class="font-bold text-5xl leading-none align-baseline">{{
-                product.price
-              }}</span>
+              <span
+                class="font-bold text-gray-900 text-5xl leading-none align-baseline"
+                >{{ product.price }}</span
+              >
               <span class="text-2xl leading-none align-baseline"> DH</span>
             </div>
             <div class="inline-block align-bottom mt-3">
