@@ -16,7 +16,7 @@
             class="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full"
           >
             <p
-              class="text-2xl md:text-3xl font-bold leading-6 xl:leading-5 text-gray-900 mb-4"
+              class="text-2xl md:text-3xl font-bold leading-6 xl:leading-5 text-gray-900 mb-8"
             >
               Customer orders
             </p>
