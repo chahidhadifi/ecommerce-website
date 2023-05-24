@@ -32,7 +32,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    document.title = "About";
+  },
+};
 </script>
 
 <style></style>

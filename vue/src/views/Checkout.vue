@@ -1,15 +1,13 @@
 <!-- background: bg-gray-50 -->
 <!-- font: text-gray-600 -->
 <template>
-  <div class="min-w-screen min-h-screen bg-white py-5">
+  <div class="min-w-screen min-h-screen bg-white py-5 mt-10">
     <div class="px-5">
-      <div class="mb-2">
-        <h1 class="text-3xl md:text-5xl font-bold text-gray-600">Checkout</h1>
+      <div class="text-center mb-9">
+        <h2 class="text-4xl font-bold text-gray-900 sm:text-4xl">Checkout</h2>
       </div>
     </div>
-    <div
-      class="w-full bg-white border-t border-b border-gray-200 px-5 py-10 text-gray-800"
-    >
+    <div class="w-full bg-white px-5 py-10 text-gray-800">
       <div class="w-full">
         <div class="-mx-3 md:flex items-start">
           <div class="px-3 md:w-7/12 lg:pr-10">
@@ -19,15 +17,13 @@
               <table
                 class="w-full text-sm text-left text-gray-600 dark:text-gray-600"
               >
-                <thead
-                  class="text-xs text-gray-700 uppercase bg-gray-50 light:bg-gray-700 light:text-gray-600"
-                >
+                <thead class="text-xs text-white bg-gray-900">
                   <tr>
                     <th scope="col" class="px-6 py-3">
                       <span class="sr-only">Image</span>
                     </th>
                     <th scope="col" class="px-6 py-3">Product</th>
-                    <th scope="col" class="px-6 py-3">Qty</th>
+                    <th scope="col" class="px-6 py-3">Quantity</th>
                     <th scope="col" class="px-6 py-3">Price</th>
                     <th scope="col" class="px-6 py-3">Total</th>
                   </tr>
@@ -37,24 +33,16 @@
                     <td class="w-32 p-4">
                       <img :src="item.product.get_thumbnail" alt="thumbnail" />
                     </td>
-                    <td
-                      class="px-6 py-4 font-semibold text-gray-900 light:text-dark"
-                    >
+                    <td class="px-6 py-4 font-bold text-gray-900">
                       {{ item.product.name }}
                     </td>
-                    <td
-                      class="px-6 py-4 font-semibold text-gray-900 light:text-dark"
-                    >
+                    <td class="px-6 py-4 font-bold text-gray-900">
                       {{ item.product.price }}
                     </td>
-                    <td
-                      class="px-6 py-4 font-semibold text-gray-900 light:text-dark"
-                    >
+                    <td class="px-6 py-4 font-bold text-gray-900">
                       {{ item.quantity }}
                     </td>
-                    <td
-                      class="px-6 py-4 font-semibold text-gray-900 light:text-dark"
-                    >
+                    <td class="px-6 py-4 font-bold text-gray-900">
                       {{ getItemTotal(item).toFixed(2) }}
                     </td>
                   </tr>
@@ -69,7 +57,9 @@
                   <span class="text-gray-600">Total</span>
                 </div>
                 <div class="pl-3">
-                  <span class="font-semibold px-1">{{ cartTotalPrice }}</span>
+                  <span class="font-bold text-2xl px-1">{{
+                    cartTotalPrice
+                  }}</span>
                   <span class="font-semibold text-gray-400 text-sm">DH</span>
                 </div>
               </div>
@@ -77,11 +67,11 @@
           </div>
           <div class="px-3 md:w-5/12">
             <div
-              class="w-full mx-auto rounded-lg bg-white border border-gray-200 text-gray-800 font-light mb-6"
+              class="w-full mx-auto rounded-lg bg-white border border-gray-200 text-gray-800 mb-6"
             >
               <div class="w-full p-3 border-b border-gray-200">
                 <div
-                  class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 light:bg-gray-800 light:text-red-400"
+                  class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50"
                   role="alert"
                   v-if="errors.length"
                 >
@@ -100,132 +90,108 @@
                   </svg>
                   <span class="sr-only">Info</span>
                   <div v-for="error in errors" v-bind:key="error">
-                    <span class="font-medium">Danger alert!</span> {{ error }}
+                    {{ error }}
                   </div>
                 </div>
                 <div>
                   <div class="mb-3">
-                    <label class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                    <label class="text-gray-600 font-bold text-sm mb-2 ml-1"
                       >First name</label
                     >
                     <div>
                       <input
-                        class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                        class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-non focus:ring-gray-900 focus:border-gray-900 transition-colors"
                         v-model="first_name"
                         type="text"
                       />
                     </div>
                   </div>
                   <div class="mb-3">
-                    <label class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                    <label class="text-gray-600 font-bold text-sm mb-2 ml-1"
                       >Last name</label
                     >
                     <div>
                       <input
-                        class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                        class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:ring-gray-900 focus:border-gray-900 transition-colors"
                         v-model="last_name"
                         type="text"
                       />
                     </div>
                     <div class="mb-3">
-                      <label
-                        class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                      <label class="text-gray-600 font-bold text-sm mb-2 ml-1"
                         >Email</label
                       >
                       <div>
                         <input
-                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:ring-gray-900 focus:border-gray-900 transition-colors"
                           v-model="email"
                           type="email"
                         />
                       </div>
                     </div>
                     <div class="mb-3">
-                      <label
-                        class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                      <label class="text-gray-600 font-bold text-sm mb-2 ml-1"
                         >Phone</label
                       >
                       <div>
                         <input
-                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:ring-gray-900 focus:border-gray-900 transition-colors"
                           v-model="phone"
                           type="text"
                         />
                       </div>
                     </div>
                     <div class="mb-3">
-                      <label
-                        class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                      <label class="text-gray-600 font-bold text-sm mb-2 ml-1"
                         >Address</label
                       >
                       <div>
                         <input
-                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:ring-gray-900 focus:border-gray-900 transition-colors"
                           v-model="address"
                           type="text"
                         />
                       </div>
                     </div>
                     <div class="mb-3">
-                      <label
-                        class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                      <label class="text-gray-600 font-bold text-sm mb-2 ml-1"
                         >Zip code</label
                       >
                       <div>
                         <input
-                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:ring-gray-900 focus:border-gray-900 transition-colors"
                           v-model="zipcode"
                           type="text"
                         />
                       </div>
                     </div>
                     <div class="mb-3">
-                      <label
-                        class="text-gray-600 font-semibold text-sm mb-2 ml-1"
+                      <label class="text-gray-600 font-bold text-sm mb-2 ml-1"
                         >Place</label
                       >
                       <div>
                         <input
-                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                          class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:ring-gray-900 focus:border-gray-900 transition-colors"
                           v-model="place"
                           type="text"
                         />
                       </div>
                     </div>
+                    <div
+                      class="text-gray-600 font-bold text-sm mb-5 ml-1 mt-6"
+                      id="card-element"
+                    ></div>
                   </div>
                 </div>
               </div>
             </div>
-            <div id="card-element" class="mb-5"></div>
-            <div v-if="cartTotalLength">
+            <div>
               <button
-                class="block w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-2 font-semibold"
+                class="block w-full max-w-xs mx-auto bg-gray-900 hover:bg-gray-700 focus:bg-gray-700 text-white rounded-lg px-3 py-2 font-semibold"
                 @click="submitForm"
               >
                 <i class="mdi mdi-lock-outline mr-1"></i> PAY NOW
               </button>
-            </div>
-            <div v-else>
-              <div
-                class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 light:bg-gray-800 light:text-red-400"
-                role="alert"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 inline w-5 h-5 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="sr-only">Info</span>
-                <div>No items in your cart</div>
-              </div>
             </div>
           </div>
         </div>

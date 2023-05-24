@@ -150,6 +150,7 @@
               id="dropdownNavbarLink"
               data-dropdown-toggle="dropdownNavbar"
               data-dropdown-trigger="hover"
+              data-dropdown-delay="500"
               class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
             >
               Profile
