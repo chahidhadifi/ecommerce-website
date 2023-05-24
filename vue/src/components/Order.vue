@@ -1,5 +1,5 @@
 <template>
-  <p class="text-lg md:text-base light:text-white font-semibold text-gray-900">
+  <p class="text-xl font-semibold text-center text-gray-500">
     Order #{{ order.id }}
   </p>
   <div
@@ -15,7 +15,7 @@
     >
       <div class="w-full flex flex-col justify-start items-start space-y-8">
         <h3
-          class="text-xl light:text-white xl:text-2xl font-semibold leading-6 text-gray-800"
+          class="text-xl light:text-white xl:text-xl font-bold leading-6 text-gray-800"
         >
           {{ item.product.name }}
         </h3>
@@ -30,7 +30,7 @@
           {{ item.quantity }}
         </p>
         <p
-          class="text-base light:text-white xl:text-lg font-semibold leading-6 text-gray-800"
+          class="text-base light:text-white xl:text-lg font-bold leading-6 text-gray-800"
         >
           {{ getItemTotal(item).toFixed(2) }} DH
         </p>

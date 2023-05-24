@@ -41,7 +41,7 @@
           </svg>
           <span class="sr-only">Info</span>
           <div v-for="error in errors" v-bind:key="error">
-            <span class="font-medium">Error!</span> {{ error }}
+            {{ error }}
           </div>
         </div>
         <div class="mb-4">
