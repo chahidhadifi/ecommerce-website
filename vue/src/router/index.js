@@ -4,6 +4,7 @@ import store from "../store";
 
 import HomeView from "../views/HomeView.vue";
 import About from "../views/About.vue";
+import Contact from "../views/Contact.vue";
 import Product from "../views/Product.vue";
 import Category from "../views/Category.vue";
 import Search from "../views/Search.vue";
@@ -24,6 +25,11 @@ const routes = [
     path: "/about",
     name: "about",
     component: About,
+  },
+  {
+    path: "/contact",
+    name: "contact",
+    component: Contact,
   },
   {
     path: "/:category_slug/:product_slug",

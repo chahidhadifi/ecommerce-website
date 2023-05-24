@@ -48,7 +48,7 @@
           <label class="mb-2 block text-sm font-bold" for="username"
             >Username</label
           ><input
-            class="shadow-sm w-full cursor-text appearance-none rounded border border-gray-300 py-2 px-3 leading-tight outline-none ring-blue-500 focus:ring"
+            class="shadow-sm w-full cursor-text appearance-none rounded border border-gray-300 py-2 px-3 leading-tight outline-none focus:ring-gray-900 focus:border-gray-900"
             id="username"
             type="text"
             v-model="username"
@@ -59,7 +59,7 @@
           <label class="mb-2 block text-sm font-bold" for="password"
             >Password</label
           ><input
-            class="shadow-sm w-full cursor-text appearance-none rounded border border-gray-300 py-2 px-3 leading-tight outline-none ring-blue-500 focus:ring"
+            class="shadow-sm w-full cursor-text appearance-none rounded border border-gray-300 py-2 px-3 leading-tight outline-none focus:ring-gray-900 focus:border-gray-900"
             id="password"
             type="password"
             v-model="password"
