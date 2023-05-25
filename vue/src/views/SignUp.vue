@@ -18,9 +18,7 @@
         class="mx-auto w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl"
       >
         <div class="mx-2 py-10 text-center md:mx-auto md:w-2/3 md:py-20">
-          <h1
-            class="mb-1 text-3xl font-black leading-4 sm:text-5xl xl:text-6xl"
-          >
+          <h1 class="mb-1 text-3xl font-bold leading-4 sm:text-5xl xl:text-5xl">
             Sign up
           </h1>
         </div>

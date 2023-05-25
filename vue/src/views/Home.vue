@@ -25,7 +25,7 @@
           >
             We offer the convenience of online shopping.
           </h1>
-          <p class="mb-6 text-base text-indigo-100 md:text-lg">
+          <p class="mb-6 text-base text-white md:text-lg text-justify">
             Welcome to our online marketplace, where shopping becomes an
             effortless and enjoyable experience. Our website brings together a
             vast selection of products from various categories, all in one

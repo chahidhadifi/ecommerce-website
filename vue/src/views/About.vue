@@ -10,7 +10,7 @@
           >
             About Us
           </h1>
-          <p class="font-normal text-base leading-6 text-gray-600">
+          <p class="font-normal text-base leading-6 text-gray-600 text-justify">
             Our e-commerce website offers a seamless shopping experience with a
             wide range of high-quality products. We prioritize customer
             satisfaction through excellent customer service, secure payment
