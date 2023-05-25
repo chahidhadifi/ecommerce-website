@@ -124,7 +124,7 @@
           <li>
             <router-link
               to="/"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded sm:hover:underline md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               aria-current="page"
               >Home
             </router-link>
@@ -132,21 +132,21 @@
           <li>
             <router-link
               to="/about"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded sm:hover:underline md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >About
             </router-link>
           </li>
           <li>
             <router-link
               to="/services"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded sm:hover:underline md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >Services
             </router-link>
           </li>
           <li>
             <router-link
               to="/contact"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded sm:hover:underline md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >Contact</router-link
             >
           </li>
@@ -156,7 +156,7 @@
               data-dropdown-toggle="dropdownNavbar"
               data-dropdown-trigger="hover"
               data-dropdown-delay="500"
-              class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+              class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded sm:hover:underline md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
             >
               Profile
               <svg
@@ -226,7 +226,7 @@
           <li>
             <router-link
               to="/cart"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:underline md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded sm:hover:underline md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >Cart
               <div
                 v-if="cartTotalLength != 0"
@@ -249,33 +249,25 @@
     <section class="overflow-y-hidden">
       <div class="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 px-4 py-12">
         <div class="flex flex-col items-center justify-center">
-          <div class="text-xl font-bold text-gray-800">Market</div>
+          <div class="text-xl font-bold text-gray-900">Market</div>
           <div
-            class="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8"
+            class="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8 text-gray-900"
           >
             <router-link
               to="/about"
-              class="focus:underline focus:outline-none hover:underline text-base cursor-pointer leading-4"
+              class="sm:hover:underline text-base cursor-pointer leading-4"
               >About</router-link
             >
             <router-link
               to="/contact"
-              class="focus:underline focus:outline-none hover:underline text-base cursor-pointer leading-4"
+              class="sm:hover:underline text-base cursor-pointer leading-4"
               >Contact us</router-link
             >
             <router-link
               to="/services"
-              class="focus:underline focus:outline-none hover:underline text-base cursor-pointer leading-4"
+              class="sm:hover:underline text-base cursor-pointer leading-4"
               >Services</router-link
             >
-          </div>
-          <div class="flex items-center mt-6">
-            <p class="text-base leading-4 text-gray-800">2023</p>
-            <div class="border-l border-gray-800 pl-2 ml-2">
-              <p class="text-base leading-4 text-gray-800">
-                All rights reserved
-              </p>
-            </div>
           </div>
         </div>
       </div>
