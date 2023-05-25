@@ -14,7 +14,7 @@
           >
             <a class="relative flex h-60 overflow-hidden" href="#">
               <img
-                class="absolute top-8 left-9"
+                class="absolute top-8 left-2"
                 :src="product.get_thumbnail"
                 alt="product image"
               />
@@ -28,7 +28,7 @@
               <div class="mt-2 mb-5 flex items-center justify-between">
                 <p>
                   <span class="text-xl font-bold text-slate-900"
-                    >DH {{ product.price }}</span
+                    >{{ product.price }} DH</span
                   >
                 </p>
               </div>

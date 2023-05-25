@@ -88,10 +88,9 @@
                 Go to this step by step guideline process on how to certify for
                 your weekly benefits:
               </p> -->
-              <a
-                href="/phone"
+              <router-link
+                to="/phone"
                 class="inline-flex items-center text-gray-900 hover:underline"
-                target="_blank"
               >
                 Explore the category
                 <svg
@@ -107,7 +106,7 @@
                     d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
                   ></path>
                 </svg>
-              </a>
+              </router-link>
             </div>
           </li>
 
@@ -125,10 +124,9 @@
                   TV
                 </h5>
               </div>
-              <a
-                href="/tv"
+              <router-link
+                to="/tv"
                 class="inline-flex items-center text-gray-900 hover:underline"
-                target="_blank"
               >
                 Explore the category
                 <svg
@@ -144,7 +142,7 @@
                     d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
                   ></path>
                 </svg>
-              </a>
+              </router-link>
             </div>
           </li>
 
@@ -162,10 +160,9 @@
                   Computer
                 </h5>
               </div>
-              <a
-                href="/ordinateur"
+              <router-link
+                to="/computer"
                 class="inline-flex items-center text-gray-900 hover:underline"
-                target="_blank"
               >
                 Explore the category
                 <svg
@@ -181,7 +178,7 @@
                     d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
                   ></path>
                 </svg>
-              </a>
+              </router-link>
             </div>
           </li>
 
@@ -199,10 +196,9 @@
                   Technology equipment
                 </h5>
               </div>
-              <a
-                href="/materiel-informatique"
+              <router-link
+                to="/technology-equipment"
                 class="inline-flex items-center text-gray-900 hover:underline"
-                target="_blank"
               >
                 Explore the category
                 <svg
@@ -218,7 +214,7 @@
                     d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
                   ></path>
                 </svg>
-              </a>
+              </router-link>
             </div>
           </li>
         </ul>
@@ -246,21 +242,23 @@
             >
               <a class="relative flex h-60 overflow-hidden" href="#">
                 <img
-                  class="absolute top-8 left-9"
+                  class="absolute top-8 left-2"
                   :src="product.get_thumbnail"
                   alt="product image"
                 />
               </a>
               <div class="mt-4 px-5 pb-5">
                 <a href="#">
-                  <h5 class="text-xl tracking-tight text-slate-900">
+                  <h5
+                    class="text-xl tracking-tight text-slate-900 whitespace-nowrap"
+                  >
                     {{ product.name }}
                   </h5>
                 </a>
                 <div class="mt-2 mb-5 flex items-center justify-between">
                   <p>
                     <span class="text-xl font-bold text-slate-900"
-                      >DH {{ product.price }}</span
+                      >{{ product.price }} DH</span
                     >
                   </p>
                 </div>
