@@ -15,8 +15,13 @@ import LogIn from "../views/LogIn.vue";
 import Account from "../views/Account.vue";
 import Checkout from "../views/Checkout.vue";
 import Success from "../views/Success.vue";
+import Error from "../views/Error.vue";
 
 const routes = [
+  {
+    path: "/:notFound",
+    component: Error,
+  },
   {
     path: "/",
     name: "home",

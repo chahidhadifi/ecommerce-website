@@ -30,7 +30,7 @@
                 </thead>
                 <tbody class="text-gray-600 text-bold">
                   <tr v-for="item in cart.items" v-bind:key="item.product.id">
-                    <td class="w-32 p-4">
+                    <td class="w-32 p-4 left-2">
                       <img :src="item.product.get_thumbnail" alt="thumbnail" />
                     </td>
                     <td class="px-6 py-4 font-bold text-gray-900">
