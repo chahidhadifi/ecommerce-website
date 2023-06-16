@@ -27,7 +27,7 @@
         <div class="py-10 text-center">
           <a
             href="/"
-            class="px-12 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3"
+            class="px-12 bg-gray-900 hover:bg-gray-700 text-white font-semibold py-3"
           >
             GO BACK
           </a>

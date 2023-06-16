@@ -314,6 +314,7 @@ export default {
         .get("/api/v1/latest-products/")
         .then((response) => {
           this.latestProducts = response.data;
+          console.log(this.latestProducts.length);
         })
         .catch((error) => {
           console.log(error);

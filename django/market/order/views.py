@@ -24,7 +24,7 @@ def checkout(request):
             charge = stripe.Charge.create(
                 amount=int(paid_amount * 100),
                 currency='MAD',
-                description='A2STMarket',
+                description='A2Market',
                 source=serializer.validated_data['stripe_token']
             )
 

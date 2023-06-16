@@ -4,11 +4,7 @@
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
     >
       <router-link to="/" class="flex items-center">
-        <!-- <img
-          src="https://flowbite.com/docs/images/logo.svg"
-          class="h-8 mr-3"
-          alt="Flowbite Logo"
-        /> -->
+        <!-- <img src="./assets/images/logo.png" class="h-12 mr-3" alt="logo" /> -->
         <span
           class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
           >Market</span
@@ -249,7 +245,13 @@
     <section class="overflow-y-hidden">
       <div class="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 px-4 py-12">
         <div class="flex flex-col items-center justify-center">
-          <div class="text-xl font-bold text-gray-900">Market</div>
+          <div class="text-xl font-bold text-gray-900">
+            <!-- <img src="./assets/images/logo.png" class="h-12 mr-3" alt="logo" /> -->
+            <span
+              class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+              >Market</span
+            >
+          </div>
           <div
             class="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8 text-gray-900"
           >

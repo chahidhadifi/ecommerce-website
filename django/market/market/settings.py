@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'a2stmarket.urls'
+ROOT_URLCONF = 'market.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'a2stmarket.wsgi.application'
+WSGI_APPLICATION = 'market.wsgi.application'
 
 
 # Database

@@ -19,7 +19,7 @@
           >
             <a class="relative flex h-60 overflow-hidden" href="#">
               <img
-                class="absolute top-8 left-9"
+                class="absolute top-8 left-4"
                 :src="product.get_thumbnail"
                 alt="product image"
               />

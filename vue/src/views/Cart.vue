@@ -35,9 +35,17 @@
         </table>
       </div>
       <div v-else class="text-center mt-16">
-        <p class="text-xl font-semibold text-gray-900 sm:text-2xl">
+        <p class="text-xl font-semibold text-gray-900 mb-10 sm:text-2xl">
           You have no products in your cart.
         </p>
+        <router-link rel="noopener noreferrer" to="/">
+          <button
+            class="cursor-pointer rounded bg-gray-900 hover:bg-gray-700 py-3 px-10 text-center text-base font-bold text-white"
+            type="submit"
+          >
+            Back to homepage
+          </button></router-link
+        >
       </div>
 
       <div class="py-10 mt-8 text-center" v-if="cartTotalLength">

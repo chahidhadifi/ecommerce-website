@@ -155,7 +155,7 @@
                     </div>
                     <div class="mb-3">
                       <label class="text-gray-600 font-bold text-sm mb-2 ml-1"
-                        >Zip code</label
+                        >Post code</label
                       >
                       <div>
                         <input
